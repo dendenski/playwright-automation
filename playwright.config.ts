@@ -33,14 +33,14 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: process.env.BASE_URL,
-    headless: false,
+    headless: true,
     trace: "on-first-retry",
     launchOptions: {
       slowMo: 150,
       args: ["--start-maximized"],
     },
     video: "on",
-    viewport: { width: 1280, height: 720 },
+    viewport: { width: 1920, height: 1080 },
   },
 
   /* Configure projects for major browsers */
@@ -48,8 +48,8 @@ export default defineConfig({
     {
       name: "chromium",
       use: {
-        // ...devices["Desktop Chrome"]
-        viewport: null,
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1920, height: 1080 },
       },
     },
 

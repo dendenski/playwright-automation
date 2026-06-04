@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://sign-test.twala.io/login?redirect=%2Fdashboard');
+  await page.getByRole('textbox', { name: 'Input valid email' }).click();
+  await page.getByRole('textbox', { name: 'Input valid email' }).fill('cypress_1780410871490@wshu.net');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('1d^WSsKxL87F!o');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('button', { name: 'Prepare document' }).click();
+  await page.getByText('Upload', { exact: true }).click();
+  await page.getByRole('button', { name: ' Include me' }).click();
+  await page.getByRole('button', { name: 'Advanced settings' }).click();
+  await page.getByRole('checkbox', { name: 'QR Code Signing Enabled' }).uncheck();
+  await page.getByRole('checkbox', { name: 'QR Code Signing Enabled' }).check();
+  await page.getByRole('button', { name: 'Prepare document' }).click();
+  await page.getByRole('button', { name: 'Signature (Left aligned)' }).click();
+  await page.getByRole('button', { name: 'Click or drag and drop to add' }).click();
+  await page.locator('iframe[title="webviewer"]').contentFrame().locator('#pageWidgetContainer1').click();
+  await page.locator('iframe[title="webviewer"]').contentFrame().locator('.document').press('ControlOrMeta+c');
+  await page.locator('iframe[title="webviewer"]').contentFrame().locator('#pageWidgetContainer1').click();
+  await page.locator('iframe[title="webviewer"]').contentFrame().locator('#pageWidgetContainer1').click();
+  await page.getByRole('button', { name: 'Send' }).click();
+  await page.getByRole('button', { name: 'Go back' }).click();
+  await page.locator('iframe[title="webviewer"]').contentFrame().getByRole('button', { name: 'Delete' }).click();
+  await page.getByRole('button', { name: 'Send' }).click();
+  await page.getByRole('button', { name: 'Finish' }).click();
+  await page.getByRole('button', { name: 'Back' }).click();
+  await page.getByRole('button', { name: 'Other actions' }).click();
+  await page.getByRole('menuitem', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'Yes' }).click();
+});

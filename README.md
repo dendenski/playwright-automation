@@ -31,13 +31,13 @@ npx playwright test --headed
 5. Generate test code interactively with Playwright Codegen:
 
 ```bash
-npx playwright codegen <your-app-url>
+npx playwright codegen <your-app-url> -o e2e/manual-recorded.spec.ts
 ```
 
 For example:
 
 ```bash
-npx playwright codegen https://example.com -o e2e/manual-recorded.spec.ts
+npx playwright codegen https://sign-test.twala.io -o e2e/manual-recorded.spec.ts
 ```
 
 ## Project Structure
