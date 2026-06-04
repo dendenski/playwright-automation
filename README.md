@@ -28,6 +28,18 @@ npx playwright test
 npx playwright test --headed
 ```
 
+5. Generate test code interactively with Playwright Codegen:
+
+```bash
+npx playwright codegen <your-app-url>
+```
+
+For example:
+
+```bash
+npx playwright codegen https://example.com -o e2e/manual-recorded.spec.ts
+```
+
 ## Project Structure
 
 - `config/playwright.config.ts` - Playwright configuration file
