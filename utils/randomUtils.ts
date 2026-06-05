@@ -18,3 +18,16 @@ export function randomPassword(prefix = "Secure!Password"): string {
 export function randomName(prefix = "Test", length = 4): string {
   return `${prefix}${randomAlpha(length)}`;
 }
+
+export function getRandomPDF(): string {
+  const contractFiles: string[] = [
+    "Builder Contract Agreement.pdf",
+    "Event Management Contract.pdf",
+    "House Rental Agreement .pdf", // Kept your original trailing space
+    "Notice of Contract Breach Letter.pdf",
+    "Partnership Agreement.pdf",
+  ];
+
+  const randomIndex = Math.floor(Math.random() * contractFiles.length);
+  return contractFiles[randomIndex];
+}
